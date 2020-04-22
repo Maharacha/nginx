@@ -1,0 +1,15 @@
+ 
+version: '3'
+services:
+  internal-nginx:
+    build:
+      context: ./nginx
+    restart: unless-stopped
+    image: web-nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+#     - "19342:19342"
+      - "443:443"
+    networks:
+      - nginx-net
